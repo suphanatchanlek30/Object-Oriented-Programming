@@ -2,6 +2,7 @@
 // 6709616897
 
 package Calculator;
+
 import java.util.Scanner;
 
 public class Calculator {
@@ -13,7 +14,7 @@ public class Calculator {
         // สร้าง object ของ Calculator
         Calculator calculator = new Calculator();
         // สร้าง object ของ SimpleArithmeticExpression
-        SimpleArithmeticExpression simpleArithmeticExpression  = new SimpleArithmeticExpression();
+        SimpleArithmeticExpression simpleArithmeticExpression = new SimpleArithmeticExpression();
 
         System.out.println("=====================================");
         System.out.println("      Simple Arithmetic Calculator  ");
@@ -56,7 +57,7 @@ public class Calculator {
             simpleArithmeticExpression.setOperand2(operand2); // ตั้งค่าตัวเลขที่ 2
             simpleArithmeticExpression.setOperator(operator); // ตั้งค่าโอเปอเรเตอร์
 
-            System.out.println("You entered: " +simpleArithmeticExpression.getExpression());
+            System.out.println("You entered: " + simpleArithmeticExpression.getExpression());
             System.out.println("Result: " + simpleArithmeticExpression.computeExpression());
             System.out.println("-------------------------------------");
         }
@@ -64,33 +65,34 @@ public class Calculator {
 
     }
 
-    private boolean isBigInteger(String x){
+    private boolean isBigInteger(String x) {
         return x.matches("[1-9][0-9]*");
     }
 
-    private boolean isOperator(String op){
+    private boolean isOperator(String op) {
         // คำนวณได้คือต้องเป็น ‘+’ หรือ ‘-‘ เท่านั้น
         return op.equals("+") || op.equals("-");
     }
 
-    public boolean isValidExpression(String expr){
+    public boolean isValidExpression(String expr) {
         // ทำการเช็คว่าเป็น Expression ที่ถูก Format หรือไม่
         String[] parts = expr.split(" ");
-        if (parts.length != 3) return false; // ต้องมี 3 ส่วน: ตัวเลข1, โอเปอเรเตอร์, ตัวเลข2
+        if (parts.length != 3)
+            return false; // ต้องมี 3 ส่วน: ตัวเลข1, โอเปอเรเตอร์, ตัวเลข2
         return isBigInteger(parts[0]) && isOperator(parts[1]) && isBigInteger(parts[2]);
     }
 
-    public String extractOperand1(String expr){
+    public String extractOperand1(String expr) {
         // สกัด operand ตัวแรกจาก expression
         return expr.split(" ")[0];
     }
 
-    public String extractOperand2(String expr){
+    public String extractOperand2(String expr) {
         // สกัด operand ตัวที่ 2 ของ expression
         return expr.split(" ")[2];
     }
 
-    public String extractOperator(String expr){
+    public String extractOperator(String expr) {
         // สกัด operator จาก expression
         return expr.split(" ")[1];
     }

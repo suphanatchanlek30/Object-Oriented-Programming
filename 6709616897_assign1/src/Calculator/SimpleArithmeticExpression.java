@@ -2,6 +2,7 @@
 // 6709616897
 
 package Calculator;
+
 import java.math.BigInteger;
 
 public class SimpleArithmeticExpression {
@@ -9,14 +10,14 @@ public class SimpleArithmeticExpression {
     private String operand2; // เก็บค่าตัวเลขที่ 2
     private String operator; // เก็บค่า '+' || '-'
 
-    public String computeExpression(){
+    public String computeExpression() {
         // คำนวณผลลัพธ์ของ Expression
         BigInteger num1 = new BigInteger(operand1); // แปลงตัวเลขที่ 1 เป็น BigInteger
         BigInteger num2 = new BigInteger(operand2); // แปลงตัวเลขที่ 2 เป็น BigInteger
         BigInteger result;
 
         // เงื่อนไข
-        if(operator.equals("+")){
+        if (operator.equals("+")) {
             result = num1.add(num2);
         } else {
             result = num1.subtract(num2);
@@ -43,30 +44,31 @@ public class SimpleArithmeticExpression {
 
     }
 
-    public void setOperand1(String operand){
+    public void setOperand1(String operand) {
         this.operand1 = operand;
     }
 
-    public void setOperand2(String operand){
+    public void setOperand2(String operand) {
         this.operand2 = operand;
     }
-    public void setOperator(String op){
+
+    public void setOperator(String op) {
         this.operator = op;
     }
 
-    public String getOperand1(){
+    public String getOperand1() {
         return this.operand1;
     }
 
-    public String getOperand2(){
+    public String getOperand2() {
         return this.operand2;
     }
 
-    public String getOperator(){
+    public String getOperator() {
         return this.operator;
     }
 
-    public String getExpression(){
+    public String getExpression() {
         StringBuilder formattedOperand1 = new StringBuilder();
         int count1 = 0;
         for (int i = getOperand1().length() - 1; i >= 0; i--) {
